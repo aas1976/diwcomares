@@ -37,6 +37,14 @@ body {
     height: 300px; /* Eliminar cuando insertemos contenido. */
 }
 
+.column2 {
+    -webkit-flex: 2;
+    -ms-flex: 2;   
+    flex: 2;   /* La columna queda a la izquierda de la siguiente */
+    padding: 10px;
+    height: 300px; /* Eliminar cuando insertemos contenido. */
+}
+
 .column-red {
   background-color: red;
 }
@@ -80,7 +88,7 @@ body {
 <main>
 <div class="row">
   <div class="column column-blue" >Columna</div>
-  <div class="column column-green" >Columna</div>
+  <div class="column2 column-green" >Columna</div>
   <div class="column column-red" >Columna</div>
 </div>
 </main>
