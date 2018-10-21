@@ -118,12 +118,21 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-    
+
+
+h1::after{
+    width: 100%;
+    height: 3;
+    background-color: red;        
+}
+
 </style>
 </head>
 
 <body>
 <h1>Pseudoclases</h1>
+<div> </div>
+
 <h2>Uso de las pseudoclases link, visited, hover y active.</h2>
 <p><b><a href="default.asp" target="_blank">This is a link</a></b></p>
 <p><b>Nota:</b> a:hover DEBE definirse después de a:link y a:visited en la definición de CSS para que sea efectivo.</p>
