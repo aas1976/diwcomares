@@ -8,37 +8,89 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <style>
+   div {
+     background-color: lightgrey;       
+   }
+  </style>
 </head>
 <body>
+<br>
+<h2>Container (ancho fijo).</h2>
+<div class="container">
+<div class="row">
+  <div class="col">Columna 1</div>
+  <div class="col">Columna 2</div>
+  <div class="col">Columna 3</div>
+</div>
+</div>
+
+<h2>Container fluid (ancho adaptativo).</h2>
+<div class="container-fluid">
+<div class="row">
+  <div class="col">Columna 1</div>
+  <div class="col">Columna 2</div>
+  <div class="col">Columna 3</div>
+</div>
+</div>
+
+<br>
+<h2>Distribución automática en tres columnas.</h2>
+<div class="row">
+  <div class="col">Columna 1</div>
+  <div class="col">Columna 2</div>
+  <div class="col">Columna 3</div>
+</div>
+<br>
+<h2>Distribución responsive en tres columnas.</h2>
+    
+<div class="row">
+  <div class="col-sm-4">Columna 1</div>
+  <div class="col-sm-4">Columna 2</div>
+  <div class="col-sm-4">Columna 3</div>
+</div>
+
+<br>
+<h2>Distribución responsive en tres columnas, para dispositivos sm y md.</h2>
+    
+<div class="row">
+  <div class="col-sm-4 col-md-12 text-center">Columna 1</div>
+  <div class="col-sm-4 col-md-6 bg-warning text-center">Columna 2</div>
+  <div class="col-sm-4 col-md-6 bg-info text-center">Columna 3</div>
+</div>
+
+<br>
+<h2>Distribución responsive anidada.</h2>
 
 <div class="container-fluid">
 <div class="row">
-<div class="col-12 col-sm-4 text-center">
+<div class="col-sm-4 text-center bg-primary text-white">
     <h1>Hola</h1>
 </div>    
-<div class="col-12 col-sm-8">
+<div class="col-sm-8">
     <div class="row">
-    <div class="col-8">
+    <div class="col">
         <div class="row">
-        <div class="col-6">Texto2</div>
-        <div class="col-6">Texto3</div>
+        <div class="col bg-secondary text-white">Texto2</div>
+        <div class="col bg-warning">Texto3</div>
         </div>
         <div class="row">
-        <div class="col-12 text-center">Texto 5<br><br></div>
+        <div class="col-12  text-center bg-success text-white">Texto 5<br><br></div>
         </div>
         <div class="row">
-        <div class="col-6">Texto 8</div>
-        <div class="col-6">Texto 9</div>
+        <div class="col bg-info text-white">Texto 8</div>
+        <div class="col bg-danger text-white">Texto 9</div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-4">
         <div class="row">
-        <div class="col-md-12 col-6">Texto 4</div>
-        <div class="col-md-12 col-6">Texto 6</div>
+        <div class="col-sm-12 bg-info text-white col-6">Texto 4</div>
+        <div class="col-sm-12 col-6">Texto 6</div>
         </div>
         <div class="row">
-        <div class="col-md-12 col-6">Texto 7</div>
-        <div class="col-md-12 col-6">Texto 10</div>
+        <div class="col-sm-12 col-6 bg-info text-white">Texto 7</div>
+       
+            <div class="col-sm-12 col-6">Texto 10</div>
         </div>
     
     </div>
