@@ -7,7 +7,18 @@
         <input [(ngModel)]="hero.name" placeholder="name"/>
       </label>
     </div>
+    <div>
+      <label>strength:
+        <input type="range" min=0 max=10 [(ngModel)]="hero.strength" placeholder="strength"/>&nbsp;{{hero.strength}}
+      </label>
+    </div>
+
+    <div>
+      <label>Date:
+        <input type="date" [(ngModel)]="hero.date">
+      </label>
+      </div>
     <button (click)="save()">save</button>
     <button (click)="goBack()">go back</button>
-  
+
 </div>

@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class MessagesComponent implements OnInit {
   production = environment.production;
 
-  constructor(public messageService: MessageService){}
+  constructor(public messageService: MessageService) {}
 
   ngOnInit() {
   }
