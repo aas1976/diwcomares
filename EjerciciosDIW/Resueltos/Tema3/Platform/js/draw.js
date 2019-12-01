@@ -108,7 +108,7 @@ var drawModule = (function () {
       direction = 'down';
       drawSnake();
       createFood();
-      gameloop = setInterval(paint, 50);
+      gameloop = setInterval(paint, 100);
   }
 
 

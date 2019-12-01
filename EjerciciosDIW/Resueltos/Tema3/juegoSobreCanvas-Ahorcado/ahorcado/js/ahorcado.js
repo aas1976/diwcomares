@@ -103,7 +103,7 @@ var game = (function () {
             // Si no hemos llegado al fin del juego, esperamos 100 milisegundos y llamamos a la función "interactua".
             // La variable "finJuego" se establecerá a valor true en la función "interactua"
             if (!finJuego) {
-                setTimeout(interactua,100);
+                setTimeout(interactua,200);
             }
         }
     } 
