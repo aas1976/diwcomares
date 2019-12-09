@@ -1,8 +1,9 @@
+
 #home {
-      width: 650px;
-      height: 650px;
+      width:360px;
+      height:360px;
       background-image: url('../img/snake.png');
-      background-size: auto 350px;
+      background-size: auto 360px;
       background-repeat: no-repeat;
       background-color: lightblue;
       background-position: center center;
