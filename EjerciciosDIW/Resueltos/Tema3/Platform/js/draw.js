@@ -21,7 +21,7 @@ var drawModule = (function () {
     ctx.fillText(score_text, 145, h-5);
   }
 
-  var drawSnake = function() {
+  var createSnake = function() {
       var length = 20;
       snake = [];
       for (var i = length-1; i>=0; i--) {
@@ -106,7 +106,7 @@ var drawModule = (function () {
 
   var init = function(){
       direction = 'down';
-      drawSnake();
+      createSnake();
       createFood();
       gameloop = setInterval(paint, 100);
   }
