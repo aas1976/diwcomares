@@ -1,26 +1,28 @@
 
 var drawModule = (function () { 
 
+  //Pinta un cuadrado de la serpiente
   var bodySnake = function(x, y) {
         ctx.fillStyle = 'green';
         ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
         ctx.strokeStyle = 'darkgreen';
         ctx.strokeRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
   }
-
+  //Pinta una pizza 
   var pizza = function(x, y) {
         ctx.fillStyle = 'yellow';
         ctx.fillRect(x*snakeSize, y*snakeSize, snakeSize, snakeSize);
         ctx.fillStyle = 'red';
         ctx.fillRect(x*snakeSize+1, y*snakeSize+1, snakeSize-2, snakeSize-2);
   }
-
+  //Pinta el marcador
   var scoreText = function() {
     var score_text = "Score: " + score;
     ctx.fillStyle = 'blue';
     ctx.fillText(score_text, 145, h-5);
   }
-
+  //Crea la serpiente inicial, que es un array de tuplas
+  //La cabeza de la serpiente está en la posición 0 del array
   var createSnake = function() {
       var length = 20;
       snake = [];
@@ -28,8 +30,9 @@ var drawModule = (function () {
           snake.push({x:i, y:0});
       }  
   }
-    
+  //Pinta un "frame" del juego, y controla la acción  
   var paint = function(){
+      //Repintamos todo el fondo
       ctx.fillStyle = 'lightgrey';
       ctx.fillRect(0, 0, w, h);
       ctx.strokeStyle = 'black';
@@ -37,9 +40,12 @@ var drawModule = (function () {
 
       btn.setAttribute('disabled', true);
 
+      //Obtenemos las coordenadas de la cabeza 
       var snakeX = snake[0].x;
       var snakeY = snake[0].y;
-
+      
+      //La desplazamos en función de la tecla pulsada
+      //en el fichero app.js se gestiona el evento de teclado
       if (direction == 'right') { 
         snakeX++; }
       else if (direction == 'left') { 
@@ -48,33 +54,36 @@ var drawModule = (function () {
         snakeY--; 
       } else if(direction == 'down') { 
         snakeY++; }
-
+      
+      //Comprobamos si ha chocado con el borde o consigo misma
       if (snakeX == -1 || snakeX >= w/snakeSize || snakeY == -1 || snakeY >= h/snakeSize || checkCollision(snakeX, snakeY, snake)) {
-          //restart game
+          //Si entra por aquí es que ha chocado
+          //Reiniciamos 
           btn.removeAttribute('disabled', true);
 
           ctx.clearRect(0,0,w,h);
           gameloop = clearInterval(gameloop);
           return;          
         }
-        
+        //La cabeza ha encontrado la comida
         if(snakeX == food.x && snakeY == food.y) {
-          var tail = {x: snakeX, y: snakeY}; //Create a new head instead of moving the tail
+          var newHead = {x: snakeX, y: snakeY}; //Creamos una nueva cabeza de la serpiente para hacerla más larga
           score ++;
           
           createFood(); //Create new food
-        } else {
-          var tail = snake.pop(); //pops out the last cell
-          tail.x = snakeX; 
-          tail.y = snakeY;
+        } else { //si no ha encontrado comida
+          var newHead = snake.pop(); //sacamos la cola y la convertimos en la nueva cabeza
+          newHead.x = snakeX; 
+          newHead.y = snakeY;
         }
-        //The snake can now eat the food.
-        snake.unshift(tail); //puts back the tail as the first cell
+        //Ponemos la cabeza
+        snake.unshift(newHead); //Ponemos la cabeza al principio de nuevo
 
+        //repintamos la serpiente
         for(var i = 0; i < snake.length; i++) {
           bodySnake(snake[i].x, snake[i].y);
         } 
-        
+        //Repintamos la pizza y el marcador
         pizza(food.x, food.y); 
         scoreText();
   }
@@ -108,7 +117,7 @@ var drawModule = (function () {
       direction = 'down';
       createSnake();
       createFood();
-      gameloop = setInterval(paint, 100);
+      gameloop = setInterval(paint, tiempoFrame);
   }
 
 

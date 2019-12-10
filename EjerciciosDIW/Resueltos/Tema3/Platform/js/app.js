@@ -1,3 +1,5 @@
+/*En este módulo registramos los eventos del juego: click en el botón "Start", y teclas
+de movimiento*/
 (function (window, document, drawModule, undefined) {
 
 var btn = document.getElementById('btn');
@@ -5,13 +7,12 @@ btn.addEventListener("click", function(){ drawModule.init();});
 
 	document.onkeydown = function(event) {
 
-        keyCode = window.event.keyCode; 
         keyCode = event.keyCode;
 
         switch(keyCode) {
         
         case 37: 
-          if (direction != 'right') {
+          if (direction != 'right') { //impide que se mueva a la izquierda si se está moviendo a la derecha
             direction = 'left';
           }
           console.log('left'); 
